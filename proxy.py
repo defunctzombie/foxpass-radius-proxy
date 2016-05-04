@@ -25,9 +25,13 @@
 import requests
 import socket
 import traceback
+import os
 
 LISTEN_PORT = 1812
 SERVER = 'https://api.foxpass.com'
+
+if 'PORT' in os.environ:
+    LISTEN_PORT = int(os.environ['PORT'])
 
 def run_proxy_server(port):
     # create socket & establish verification url
